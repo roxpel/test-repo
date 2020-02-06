@@ -1,0 +1,33 @@
+---
+title: "PPOL 670"
+author: "Roxane Peloux"
+date: "2/5/2020"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+# Title
+
+Date:
+
+### By Roxane
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r loading-packages, message = FALSE}
+library(tidyverse)
+```
+
+
+```{r}
+storms %>%
+  group_by(year) %>%
+  summarize(wind = mean(wind)) %>%
+  ggplot(mapping = aes(x = year, y = wind)) + 
+  geom_line() + 
+  geom_point()
+```
+
